@@ -1,0 +1,57 @@
+.field {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-image: url('/assets/img/wood.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-stack {
+    position: relative;
+
+    img {
+        position: absolute;
+        width: 120px;
+    }
+}
+
+.topCard {
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1) translateY(-25px);
+        transition: transform 0.2s;
+    }
+}
+
+.pick-card {
+
+    animation: pick-card-animation 2s ease-in-out forwards;
+}
+
+@keyframes pick-card-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.5);
+    }
+
+    30% {
+        transform: scale(1.6);
+    }
+
+    50% {
+        transform: scale(1.9);
+    }
+
+    100% {
+        transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
+    }
+
+}
