@@ -30,20 +30,17 @@
 
 .pick-card {
 
-    animation: pick-card-animation 2s ease-in-out forwards;
+    animation: pick-card-animation 1s ease-in-out forwards;
+}
+
+.played-card {
+            transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
+right: 25px;
 }
 
 @keyframes pick-card-animation {
     0% {
         transform: scale(1);
-    }
-
-    20% {
-        transform: scale(1.5);
-    }
-
-    30% {
-        transform: scale(1.6);
     }
 
     50% {
@@ -54,4 +51,15 @@
         transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
     }
 
+}
+
+.playerPosition {
+    position: absolute;
+    right: 0;
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
 }
