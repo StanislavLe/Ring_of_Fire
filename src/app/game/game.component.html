@@ -3,18 +3,18 @@
 
 <div class="field">
     <div class="card-stack">
-        <img [ngStyle]="{'right.px':i*7}" *ngFor="let c of [0,1,2,3]; let i = index;" src="/assets/img/card_cover.png"
+        <img [ngStyle]="{'right.px':i*7}" *ngFor="let c of [0,1,2,3]; let i = index;" src="assets/img/card_cover.png"
             alt="Card Back">
 
-        <img (click)="takeCard()" class="topCard" style="right: 28px" src="/assets/img/card_cover.png" alt="Card Back">
+        <img (click)="takeCard()" class="topCard" style="right: 28px" src="assets/img/card_cover.png" alt="Card Back">
 
 
 
-        <img *ngFor="let card of game.playedCard" class="played-card" src="/assets/img/cards/{{card}}.png"
+        <img *ngFor="let card of game.playedCard" class="played-card" src="assets/img/cards/{{card}}.png"
             alt="Card Back">
 
         <img (click)="takeCard()" *ngIf="pickCardAnimation" class="pick-card" style="right: 28px"
-            src="/assets/img/cards/{{currentCard}}.png" alt="Card Back">
+            src="assets/img/cards/{{currentCard}}.png" alt="Card Back">
 
     </div>
 </div>
