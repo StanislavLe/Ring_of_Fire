@@ -1,7 +1,7 @@
 .player {
     display: flex;
     align-items: center;
-    background-color: orange;
+    background-color: rgb(36, 36, 36, 0.8);
     width: 300px;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -13,9 +13,13 @@
     }
 
     img {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         object-fit: cover;
     }
+}
+
+.playerActive {
+    background-color: rgb(0, 167, 0);
 }

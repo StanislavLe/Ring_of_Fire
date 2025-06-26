@@ -34,8 +34,8 @@
 }
 
 .played-card {
-            transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
-right: 25px;
+    transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
+    right: 25px;
 }
 
 @keyframes pick-card-animation {
@@ -62,4 +62,13 @@ right: 25px;
     position: absolute;
     right: 32px;
     bottom: 32px;
+}
+
+.pinBottom {
+    position: absolute;
+    bottom: 32px;
+    left: 100px;
+    right: 100px;
+    color: black;
+    width: 800px;
 }
