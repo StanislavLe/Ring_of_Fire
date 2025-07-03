@@ -14,7 +14,25 @@ export class Game {
         }
         shuffle(this.stack);
     }
+
+
+
+    
+  public toJson() {
+    return {
+      players: this.players,
+      stack: this.stack,
+      playedCard: this.playedCard,
+      currentPlayer: this.currentPlayer
+    };
+  }
+
 }
+
+
+
+
+
 
 function shuffle(array: string[]) {
   let currentIndex = array.length;
@@ -30,4 +48,7 @@ function shuffle(array: string[]) {
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
+
+
+  
 }

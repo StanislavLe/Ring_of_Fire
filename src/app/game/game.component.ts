@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Game } from '../../models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { Firestore, collection, collectionData, addDoc, doc, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-game',
@@ -14,16 +17,39 @@ export class GameComponent {
   currentCard: string = '';
 
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    private route: ActivatedRoute,
+    private firestore: Firestore,
+    public dialog: MatDialog
+  ) { }
 
 
   ngOnInit() {
     this.newGame();
+
+    this.route.params.subscribe((params) => {
+      const gameId = params['id'];
+      console.log(gameId);
+
+      if (gameId) {
+        const gameDocRef = doc(this.firestore, 'games', gameId);
+        docData(gameDocRef).subscribe((gameData: any) => {
+          console.log('game update', gameData);
+          this.game.currentPlayer = gameData.currentPlayer;
+          this.game.playedCard = gameData.playedCard;
+          this.game.players = gameData.players;
+          this.game.stack = gameData.stack
+        });
+      }
+    });
   }
 
-  newGame() {
+
+  async newGame() {
+    const itemsCollection = collection(this.firestore, 'games');
     this.game = new Game();
-    console.log('New game started:', this.game);
+    // await addDoc(itemsCollection, this.game.toJson());
+    // console.log('New game started:', this.game);
   }
 
   takeCard() {
@@ -54,6 +80,7 @@ export class GameComponent {
       }
     });
   }
+
 
 
 }
