@@ -1,5 +1,9 @@
 <app-player *ngFor="let player of game.players; let i = index" [ngStyle]="{'top.px': 100 + (i * 90)}"
-    class="playerPosition" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+    class="playerPosition hide-mobile" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+
+<div class="scrollContainer hide-desktop"><app-player-mobile *ngFor="let player of game.players; let i = index" [ngStyle]="{'left.px': 10 + (i * 100)}"
+     [name]="player" [playerActive]="i == game.currentPlayer"></app-player-mobile>
+</div>
 
 <div class="field">
     <div class="card-stack">

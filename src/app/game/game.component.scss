@@ -64,6 +64,10 @@
     position: absolute;
     right: 32px;
     bottom: 32px;
+
+    @media (max-width: 720px) {
+        bottom: 100px;
+    }
 }
 
 .pinBottom {
@@ -72,5 +76,25 @@
     left: 100px;
     right: 100px;
     color: black;
-    width: 800px;
+
+
+    @media (max-width: 720px) {
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.scrollContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    app-player-mobile {
+        margin: 8px;
+    }
 }
