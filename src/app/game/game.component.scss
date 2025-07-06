@@ -36,6 +36,16 @@
 .played-card {
     transform: scale(1.5) translateX(150px) translateY(-220px) rotate(-20deg);
     right: 25px;
+
+    @media (max-width: 1150px) {
+        transform: scale(1) translateX(50px) translateY(-320px) rotate(-20deg);
+        right: 50px;
+    }
+
+    @media (max-width: 720px) {
+        transform: scale(1) translateX(180px) translateY(-180px) rotate(-20deg);
+        right: 50px;
+    }
 }
 
 @keyframes pick-card-animation {
@@ -96,5 +106,14 @@
 
     app-player-mobile {
         margin: 8px;
+    }
+}
+
+app-player,
+app-player-mobile {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.15);
     }
 }

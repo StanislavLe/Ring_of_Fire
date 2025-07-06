@@ -1,8 +1,13 @@
-<app-player *ngFor="let player of game.players; let i = index" [ngStyle]="{'top.px': 100 + (i * 90)}"
-    class="playerPosition hide-mobile" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+<app-player (click)="editPlayer()" *ngFor="let player of game.players; let i = index"
+    [ngStyle]="{'top.px': 100 + (i * 90)}" class="playerPosition hide-mobile" [name]="player"
+    [playerActive]="i == game.currentPlayer"
+    [image]="game.player_images[i]"></app-player>
 
-<div class="scrollContainer hide-desktop"><app-player-mobile *ngFor="let player of game.players; let i = index" [ngStyle]="{'left.px': 10 + (i * 100)}"
-     [name]="player" [playerActive]="i == game.currentPlayer"></app-player-mobile>
+<div class="scrollContainer hide-desktop">
+    <app-player-mobile (click)="editPlayer()" *ngFor="let player of game.players; let i = index"
+        [ngStyle]="{'left.px': 10 + (i * 100)}" [name]="player"
+        [playerActive]="i == game.currentPlayer"
+        [image]="game.player_images[i]"></app-player-mobile>
 </div>
 
 <div class="field">
