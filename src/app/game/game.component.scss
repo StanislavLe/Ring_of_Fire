@@ -117,3 +117,15 @@ app-player-mobile {
         filter: brightness(1.15);
     }
 }
+
+.gameOver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+
+    img{
+        width: 300px;
+        height: 300px;
+    }
+} 

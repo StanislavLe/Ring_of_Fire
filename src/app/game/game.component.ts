@@ -15,6 +15,7 @@ export class GameComponent {
 
   game: Game = new Game();
   gameId: string = '';
+  gameOver: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,8 +45,15 @@ export class GameComponent {
     });
   }
 
+
+
+
+
   takeCard() {
-    if (!this.game.pickCardAnimation) {
+    if(this.game.stack.length === 0) {
+      this.gameOver = true;
+    }
+    else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop() || '';
       this.game.pickCardAnimation = true;
       this.saveGame();
@@ -58,6 +66,9 @@ export class GameComponent {
       }, 1000);
     }
   }
+
+
+
 
 
   editPlayer(playerIndex: number) {
