@@ -60,19 +60,25 @@ export class GameComponent {
   }
 
 
-editPlayer() {
-  const dialogRef = this.dialog.open(EditPlayerComponent, {});
-  dialogRef.afterClosed().subscribe((selectedPicture: string) => {
-    if (selectedPicture) {
-      console.log('Ausgewähltes Bild:', selectedPicture);
-      // Das Bild an passender Stelle im player_images Array ändern
-      this.game.player_images[this.game.currentPlayer] = selectedPicture;
-      this.saveGame();
-    } else {
-      console.log('Edit player abgebrochen oder kein Bild gewählt.');
-    }
-  });
-}
+  editPlayer(playerIndex: number) {
+    const dialogRef = this.dialog.open(EditPlayerComponent, {});
+    dialogRef.afterClosed().subscribe((result: string) => {
+      if (result === 'DELETE') {
+        this.game.players.splice(playerIndex, 1);
+        this.game.player_images.splice(playerIndex, 1);
+        this.saveGame();
+      } else if (result) {
+        // Bild geändert
+        console.log('Ausgewähltes Bild:', result);
+        this.game.player_images[playerIndex] = result;
+        this.saveGame();
+      } else {
+        console.log('Edit player abgebrochen oder kein Bild gewählt.');
+      }
+    });
+  }
+
+
 
 
 

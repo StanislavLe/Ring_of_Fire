@@ -9,8 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogAddPlayerComponent {
   name: string = '';
 
-  constructor(private dialogRef: MatDialogRef<DialogAddPlayerComponent>
-  ) { }
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { }
 
   ngOnInit(): void {
     // Initialize any necessary data or state here
